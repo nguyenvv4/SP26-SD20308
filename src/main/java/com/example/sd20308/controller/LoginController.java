@@ -14,9 +14,15 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public void login(
-            @RequestParam("username") String userName
+    public String login(
+            @RequestParam("username") String userName,
+            @RequestParam("password") String password
     ) {
-        System.out.println("ban vua nhap: " + userName);
+        if (userName.equals("admin") && password.equals("admin")) {
+            return "redirect:/list-user";
+        } else {
+            return "error.html";
+            // return "redirect:/error";
+        }
     }
 }

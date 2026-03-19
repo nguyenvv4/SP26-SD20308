@@ -39,4 +39,9 @@ public class UserController {
         model.addAttribute("users", users);
         return "index.html";
     }
+
+    @GetMapping("/detail")
+    public String detail(Model model) {
+        return "user-detail.html";
+    }
 }
