@@ -57,6 +57,14 @@ public class UserController {
         return "index.html";
     }
 
+    @PostMapping("/save")
+    public String save(
+            User user
+    ) {
+        userRepo.save(user);
+        return "index.html";
+    }
+
     @GetMapping("/detail")
     public String detail(Model model) {
         return "user-detail.html";

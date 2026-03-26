@@ -16,6 +16,7 @@ public class User {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
 
     @Column(name = "email")
@@ -35,4 +36,17 @@ public class User {
 
     @Column(name = "active")
     public Boolean active;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", active=" + active +
+                '}';
+    }
 }
