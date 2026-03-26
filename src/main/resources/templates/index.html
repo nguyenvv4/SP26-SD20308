@@ -9,7 +9,7 @@
 <body>
 <form action="/save" method="post">
     <label>email</label> <input type="text" value="" name="email"><br>
-    <label>fullname</label> <input type="text" value="" name="fullname"><br>
+    <label>fullname</label> <input type="text" value="" name="fullName"><br>
     <label>password</label> <input type="text" value="" name="password"><br>
     <label>phone</label> <input type="text" value="" name="phone"><br>
     <label>role</label> <input type="radio" name="role" value="true"> Quản lý
@@ -42,7 +42,8 @@
         <td th:text="${user.phone}"></td>
         <td th:text="${user.role}"></td>
         <td th:text="${user.active}"></td>
-        <td><a href="/detail" class="btn btn-primary">Chi tiet</a></td>
+        <!--        id phai trung voi @request param-->
+        <td><a th:href="@{|/delete?id=${user.id}|}" class="btn btn-primary">Xóa</a></td>
     </tr>
     </tbody>
 </table>

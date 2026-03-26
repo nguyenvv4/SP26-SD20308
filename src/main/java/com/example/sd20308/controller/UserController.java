@@ -62,12 +62,20 @@ public class UserController {
             User user
     ) {
         userRepo.save(user);
-        return "index.html";
+        return "redirect:/list-user";
     }
 
     @GetMapping("/detail")
     public String detail(Model model) {
         return "user-detail.html";
+    }
+
+    @GetMapping("/delete")
+    public String delete(
+            @RequestParam("id") Integer id
+    ) {
+        userRepo.deleteById(id);
+        return "redirect:/list-user";
     }
 
 
