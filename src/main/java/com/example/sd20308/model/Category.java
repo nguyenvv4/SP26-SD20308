@@ -26,4 +26,12 @@ public class Category {
     @Column(name = "active")
     private Boolean active;
 
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", active=" + active +
+                '}';
+    }
 }

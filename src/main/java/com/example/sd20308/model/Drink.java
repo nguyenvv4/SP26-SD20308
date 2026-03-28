@@ -35,7 +35,7 @@ public class Drink {
     private Boolean active;
 
     @JoinColumn(name = "category_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
     @Override
