@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/add" method="post">
+    <label>Name</label> <input type="text" name="name"> <br>
+    <label>Price</label> <input type="text" name="price"> <br>
+    <label>Image</label> <input type="text" name="image"> <br>
+    <label>Description</label> <input type="text" name="description"> <br>
+    <label>Category</label>
+    <select th:name="category">
+        <option th:each="c : ${listCategory}"
+                th:value="${c.id}"
+                th:text="${c.name}">
+        </option>
+    </select>
+    <label>Actvie</label> <input type="radio" name="active" value="true"> Hoat dong
+    <input type="radio" name="active" value="false"> Khong hoat dong <br>
+    <button type="submit"> Them</button>
+</form>
+
+</body>
+</html>
