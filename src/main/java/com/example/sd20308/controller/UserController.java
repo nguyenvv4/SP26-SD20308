@@ -78,5 +78,14 @@ public class UserController {
         return "redirect:/list-user";
     }
 
+    @GetMapping("/search")
+    public String searchUser(@RequestParam("fullName") String fullName,
+                             Model model,
+                             @RequestParam("role") Boolean role) {
+        List<User> users = userRepo.getByFullNameOrRole(fullName, role);
+        model.addAttribute("users", users);
+        return "index.html";
+    }
+
 
 }
