@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <td>id</td>
+    <td>name</td>
+    <td>so luong</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="drinkTmp: ${drinkTmpList}">
+    <td th:text="${drinkTmp.id}"></td>
+    <td th:text="${drinkTmp.name}"></td>
+    <td th:text="${drinkTmp.soLuong}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
