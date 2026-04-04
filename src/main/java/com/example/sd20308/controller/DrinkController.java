@@ -5,10 +5,14 @@ import com.example.sd20308.model.Drink;
 import com.example.sd20308.repository.CategoryRepo;
 import com.example.sd20308.repository.DrinkRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -36,4 +40,17 @@ public class DrinkController {
         drinkRepo.save(drink);
         return "redirect:/drink";
     }
+
+    @GetMapping("/page")
+    public String page(
+            @RequestParam("pageNumber") Integer pageNumber,
+            @RequestParam("pageSize") Integer pageSize,
+            Model model
+    ) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        Page<Drink> drinks = drinkRepo.findAll(pageable);
+        model.addAttribute("drinks", drinks);
+        return "drink";
+    }
+
 }

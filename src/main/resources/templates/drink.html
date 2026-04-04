@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
 </head>
 <body>
 <form action="/add" method="post">
@@ -21,6 +24,21 @@
     <input type="radio" name="active" value="false"> Khong hoat dong <br>
     <button type="submit"> Them</button>
 </form>
-
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>price</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="drink : ${drinks}">
+        <td th:text="${drink.id}"></td>
+        <td th:text="${drink.name}"></td>
+        <td th:text="${drink.price}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
