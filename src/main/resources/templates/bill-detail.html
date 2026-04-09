@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/bill/update" method="post">
+    id <input type="text" name="id" th:value="${bill.id}" readonly> <br>
+    Code <input type="text" name="code" th:value="${bill.code}"> <br>
+    Total <input type="text" name="total" th:value="${bill.total}"> <br>
+    Status <input type="radio" name="status" value="Active" th:checked="${bill.status} == 'Active'"> Da thanh
+    toan
+    <input type="radio" name="status" value="Inactive" th:checked="${bill.status} == 'Inactive'"> Chua thanh
+    toan
+    <br>
+    User
+    <select th:name="userId">
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.fullName}"
+                th:selected="${user.id == bill.userId.id}"></option>
+    </select> <br>
+
+    Created <input type="date" name="createAt" th:value="${bill.createAt}"> <br>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
